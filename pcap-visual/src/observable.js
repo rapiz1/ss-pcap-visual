@@ -331,7 +331,7 @@ export function ChinaMap(
             .attr("transform", (d) => `translate(${npos})`);
         })
         .on("mouseleave", function () {
-          tooltip.transition().delay(1000).attr("opacity", 0);
+          tooltip.transition().delay(200).attr("opacity", 0);
         })
         .transition()
         .attr("r", circleRadius);
