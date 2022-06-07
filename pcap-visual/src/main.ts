@@ -2,24 +2,12 @@ import './style.css'
 import { BarChart, ChinaMap, TextScoller } from './observable';
 import { IpGeoData, lookup } from './ip';
 import { humanReadableSize } from './utils';
+import { mock } from './mock';
+import { Ipv4Packet, CapturedPacket } from './packet';
 
 const WS_URL = 'ws://localhost:9002'
 
 const bytesPlace = document.querySelector('#bytes-place')!
-
-interface Ipv4Packet {
-  source: string,
-  dest: string,
-};
-
-interface ArpPacket {
-  op: string
-};
-
-interface CapturedPacket {
-  transport: Ipv4Packet | ArpPacket,
-  size: number,
-};
 
 class BarChartDisplay {
   barChart
@@ -176,8 +164,18 @@ class TrafficStats {
 
 const trafficStats = new TrafficStats();
 
-const socket = new WebSocket(WS_URL)
-socket.onmessage = (event) => {
-  const packet = JSON.parse(event.data) as CapturedPacket;
-  trafficStats.addTraffic(packet);
+const mockMode = import.meta.env.VITE_MOCK;
+if (mockMode == 1) {
+  console.log("mock mode");
+  mock((p) => {
+    console.log(p, 'mocked');
+    trafficStats.addTraffic(p);
+  });
+}
+else {
+  const socket = new WebSocket(WS_URL)
+  socket.onmessage = (event) => {
+    const packet = JSON.parse(event.data) as CapturedPacket;
+    trafficStats.addTraffic(packet);
+  }
 }
