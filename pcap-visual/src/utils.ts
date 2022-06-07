@@ -1,6 +1,6 @@
 export function humanReadableSize(x: number): string {
   const base = 1000;
-  const suffix = ['B', 'KiB', 'MiB', 'GiB', 'TiB'];
+  const suffix = ['B', 'KB', 'MB', 'GB', 'TB'];
   let i = 0;
   for (i = 0; i < suffix.length && x >= base; i++) {
     x /= base;
