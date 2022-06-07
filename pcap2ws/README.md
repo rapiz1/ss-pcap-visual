@@ -16,5 +16,5 @@ make
 ## How to Run
 
 ```bash
-sudo ./pcap2ws
+sudo ./pcap2ws your_network_interface_name
 ```
