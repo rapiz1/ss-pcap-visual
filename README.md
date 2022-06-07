@@ -8,8 +8,10 @@ This project is just a naive attempt to mix pcap, web front-end tech, and d3js t
 
 ## How To Run
 
-1. Build and run `./pcap2ws your_network_interface_name`, which is the backend that captures traffic and pipes the data to the websocket.
-2. Run `yarn && yarn dev` in `pcap-visual`, which is the web front-end that visualizes the data.
+1. Build and run `pcap2ws`, which is the backend that captures traffic and pipes the data to the websocket.
+2. Build and run `pcap-visual`, which is the web front-end that visualizes the data.
+
+See their READMEs for more information.
 
 ## How It Works
 
