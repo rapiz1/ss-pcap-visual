@@ -1,6 +1,10 @@
-# How to Compile
+# pcap2ws
 
-You need library `boost` and `fmt` installed before the compilation.
+A simple websocket server that captures traffic using `libpcap` and broadcasts the data via the websocket
+
+## How to Compile
+
+You need library `boost`, `fmt` and `libpcap` installed before the compilation.
 
 ```bash
 mkdir build
@@ -9,7 +13,8 @@ cmake ..
 make
 ```
 
-# How to Run
+## How to Run
+
 ```bash
 sudo ./pcap2ws
 ```

@@ -6,6 +6,11 @@ This project is just a naive attempt to mix pcap, web front-end tech, and d3js t
 
 ![img](./docs/screenshot.png)
 
+## How To Run
+
+1. Build and run `pcap2ws`, which is the backend that captures traffic and pipes the data to the websocket.
+2. Run `yarn && yarn dev` in `pcap-visual`, which is the web front-end that visualizes the data.
+
 ## How It Works
 
 The project contains two module: `pcap2ws` and `pcap-visual`.
@@ -24,11 +29,6 @@ A static web page built with `d3js`. It will connect to `localhost:9002` to fetc
 It draws the traffic in a certain period as a bar chart, as well as points on the map. The map component uses the data of PRC but it should be possible to use others. The format is mostly `geojson`, I guess.
 
 *Disclaimer: The map data of PRC is just dumped from the wild and random Internet. Including the data(as well as borders, regions in it) is mainly for the convenience and does not represent my opinions or positions.*
-
-## How To Run
-
-1. Build and run `pcap2ws`, which is the backend that pipe pcap data to websocket.
-2. Run `yarn && yarn dev` in `pcap-visual`, which is the web front-end that visualize the data.
 
 ## Maintenance Status
 
